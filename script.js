@@ -70,3 +70,25 @@ function displayPokemon(data) {
     "transition-all",
     "duration-500"
   );
+
+
+  
+  pokemonDiv.innerHTML = `
+    <h2 class="text-xl font-bold text-gray-800 dark:text-white">${name}</h2>
+    <p class="text-gray-500 dark:text-gray-400">${id}</p>
+
+    <div class="flex justify-center gap-2 my-3">
+      <img src="${data.sprites.front_default}" alt="front">
+      <img src="${data.sprites.back_default}" alt="back">
+      <img src="${data.sprites.front_shiny}" alt="shiny">
+    </div>
+
+    <p class="dark:text-gray-300">Height: ${height} m</p>
+    <p class="dark:text-gray-300">Weight: ${weight} kg</p>
+    <p class="dark:text-gray-300">Base Exp: ${baseExp}</p>
+
+    <div class="mt-2">${types}</div>
+  `;
+
+  card.appendChild(pokemonDiv);
+}
