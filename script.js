@@ -47,3 +47,26 @@ async function fetchPokemon() {
     button.disabled = false;
   }
 }
+
+
+
+
+function displayPokemon(data) {
+  const name = data.name.charAt(0).toUpperCase() + data.name.slice(1);
+  const id = `#${data.id.toString().padStart(3, "0")}`;
+  const height = data.height / 10;
+  const weight = data.weight / 10;
+  const baseExp = data.base_experience;
+
+  const types = data.types.map(type =>
+    `<span class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded-full text-sm mr-1 dark:bg-indigo-700 dark:text-white">
+      ${type.type.name}
+    </span>`
+  ).join("");
+
+  const pokemonDiv = document.createElement("div");
+  pokemonDiv.classList.add(
+    "animate-fadeIn",
+    "transition-all",
+    "duration-500"
+  );
