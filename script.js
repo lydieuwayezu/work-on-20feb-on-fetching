@@ -33,3 +33,17 @@ async function fetchPokemon() {
         throw new Error("Something went wrong.");
       }
     }
+
+    
+    const data = await response.json();
+    displayPokemon(data);
+
+  } catch (error) {
+    card.innerHTML = `
+      <p class="text-red-500 font-semibold">${error.message}</p>
+    `;
+  } finally {
+    loading.classList.add("hidden");
+    button.disabled = false;
+  }
+}
